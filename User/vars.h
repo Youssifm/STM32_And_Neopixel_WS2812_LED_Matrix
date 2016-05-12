@@ -1,5 +1,5 @@
 #include <stm32f10x.h>
-#include <stdbool.h>		
+#include <stdbool.h>
 
 #define GPIO_PWM_PIN				GPIO_Pin_2
 #define GPIO_USART_TX_PIN			GPIO_Pin_9
@@ -14,14 +14,14 @@
 #define	ROWS						1
 
 /* Buffer that holds one complete DMA transmission.
- *  
+ *
  * The buffer size can be calculated as followas:
  * number of LEDs * 24 bytes + 42 bytes.
- * 
+ *
  * This leaves us with a maximum string length of
  * (2^16 bytes per DMA stream - 42 bytes)/24 bytes per LED = 2728 LEDs.
  */
- 
+
 #define LED_COUNT			COLUMBS*ROWS
 #define LED_BUFFER_SIZE		24*LED_COUNT+42			// Buffer size needs to be the number of LEDs times 24 bits plus 42 trailing bit to signify the end of the data being transmitted.
 
@@ -33,3 +33,4 @@ extern char usartBTBuffer[25];
 extern bool config_BT;
 
 extern char usartBuff[LED_BUFFER_SIZE+100];			// Debugging buffer
+
